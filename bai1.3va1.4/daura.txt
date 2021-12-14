@@ -1,73 +1,75 @@
-ten: aa
+ten: a a b
 sdt: a123
 gmail: a@
-ten: bb
+ten: bb c as
 sdt: b123
 gmail: b@
-ten: cc
+ten: cc qw ty
 sdt: c123
 gmail: c@
-ten: dd
+ten: dd e th
 sdt: d123
 gmail: d@
-ten: duchoang
+ten: duc hoang
 sdt: 1233245
 gmail: asd@
 ten: duy
 sdt: 345234
 gmail: duy@
-ten: ee
+ten: ee asd asd
 sdt: e123
 gmail: e@
-ten: ff
+ten: ffq qwe ert
 sdt: f123
 gmail: f@
-ten: hoangtheanh
+ten: hoang the anh
 sdt: 123
 gmail: @
-ten: vanduc
+ten: van duc
 sdt: 34567
 gmail: vanduc@
 
 
 phan tu bi day ra: 
-ten: aa
+ten: a a b
 sdt: a123
 gmail: a@
 
 sau khi day phan tu thu 11 vao:
-1  ten: bb
+1  ten: bb c as
 sdt: b123
 gmail: b@
-2  ten: cc
+2  ten: cc qw ty
 sdt: c123
 gmail: c@
-3  ten: dd
+3  ten: dd e th
 sdt: d123
 gmail: d@
-4  ten: duchoang
+4  ten: duc hoang
 sdt: 1233245
 gmail: asd@
 5  ten: duy
 sdt: 345234
 gmail: duy@
-6  ten: ee
+6  ten: ee asd asd
 sdt: e123
 gmail: e@
-7  ten: ff
+7  ten: ffq qwe ert
 sdt: f123
 gmail: f@
-8  ten: hoangtheanh
+8  ten: hoang the anh
 sdt: 123
 gmail: @
-9  ten: vanduc
+9  ten: van duc
 sdt: 34567
 gmail: vanduc@
-10  ten: vanthai
+10  ten: van thai
 sdt: 9876
 gmail: vanthai@
 
-Vi tri: 5
-ten: ee
-sdt: e123
-gmail: e@
+
+ket qua tim kiem : 
+vi tri: 9
+ten: van duc
+sdt: 34567
+gmail: vanduc@

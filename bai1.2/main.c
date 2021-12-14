@@ -15,17 +15,6 @@ typedef struct
 } st;
 st fi[30];
 char x,y[1000];
-int BinarySearch(st A[ ], char x[], int Low, int High ) {
-    if (Low > High) return -1;
-    int Mid = ( Low + High ) / 2;
-    if (strcmp(A[Mid].name,x) < 0 )
-        return BinarySearch(A, x, Mid+1, High);
-    if (strcmp(A[Mid].name,x) > 0 )
-        return BinarySearch(A, x, Low, Mid-1);
-    if (strcmp(A[Mid].name,x) == 0 )
-        return Mid;
-    return -1;
-}
 node crt(char a[], char b[], char c[]){
     node p;
     p = (node)malloc(sizeof(struct link));
@@ -55,19 +44,29 @@ node themcuoi(node head, char a[], char b[], char c[]){
     }
     return head;
 }
-
-void in(node head){
-    printf("\nDanh sach:\n");
+void Search(node head, FILE *dr){
+    char x[100];
+    int vitri=0;
+    printf("nhap ten muon tim kiem: ");
+    fflush(stdin);
+    gets(x);
     for(node p = head; p != NULL; p = p->next){
-        printf("%s\n",p->sdt);
-        printf("%s\n",p->name);
-        printf("%s\n",p->gmail);
+        if(strcmp(p->name,x)==0){
+            fprintf(dr,"Vi tri : %d\n",vitri+1);
+            fprintf(dr,"%s\n",p->name);
+            fprintf(dr,"%s\n",p->sdt);
+            fprintf(dr,"%s\n",p->gmail);
+            return;
+        }
+        ++vitri;
     }
+    fprintf(dr,"Khong tim thay ten\n");
+    ;
 }
 int main(){
     int dem1=0,dem2=0,dem3=0;
     FILE *f=fopen("ds.txt","r+");
-    FILE *dr=fopen("daura.txt","r+");
+    FILE *dr=fopen("daura.txt","w+");
     while(fscanf(f,"%c",&x)!=EOF){
         y[dem1]=x;
         dem1++;
@@ -105,17 +104,11 @@ int main(){
         head=themcuoi(head,fi[i].name,fi[i].sdt,fi[i].email);
     }
     for(node p = head; p != NULL; p = p->next){
-        fprintf(dr,"%s\n",p->name);
-        fprintf(dr,"%s\n",p->sdt);
-        fprintf(dr,"%s\n",p->gmail);
+        fprintf(dr,"ten : %s\n",p->name);
+        fprintf(dr,"sdt : %s\n",p->sdt);
+        fprintf(dr,"gmail: %s\n\n",p->gmail);
     };
-    int a = BinarySearch(fi,"hoangtheanh",0,size-1);
-    if(a!=-1){
-        fprintf(dr,"\nVi tri: %d\nten: %s\nsdt: %s\ngmail: %s\n",a+1,fi[a].name,fi[a].sdt,fi[a].email);
-    }
-    else{
-        fprintf(dr,"\nkhong tim thay\n");
-    };
+    Search(head,dr);
     fclose(f);
     fclose(dr);
 }

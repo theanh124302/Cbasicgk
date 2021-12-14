@@ -23,7 +23,7 @@ int main(){
 
     int dem1=0,dem2=0,dem3=0;
     FILE *f=fopen("ds.txt","r+");
-    FILE *dr=fopen("daura.txt","r+");
+    FILE *dr=fopen("daura.txt","w+");
     while(fscanf(f,"%c",&x)!=EOF){
         y[dem1]=x;
         dem1++;
@@ -63,9 +63,14 @@ int main(){
     for(int i=0;i<size;i++){
         fprintf(dr,"\nten: %s\nsdt: %s\ngmail: %s\n",fi[i].name,fi[i].sdt,fi[i].email);
     }
-    int a = BinarySearch(fi,"hoangtheanh",0,size-1);
+    char timkiem[100];
+    printf("nhap ten muon tim : ");
+    fflush(stdin);
+    gets(timkiem);
+    int a = BinarySearch(fi,timkiem,0,size-1);
+    fprintf(dr,"\n\nket qua tim kiem : \n");
     if(a!=-1){
-        fprintf(dr,"\nVi tri: %d\nten: %s\nsdt: %s\ngmail: %s\n",a+1,fi[a].name,fi[a].sdt,fi[a].email);
+        fprintf(dr,"Vi tri: %d\nten: %s\nsdt: %s\ngmail: %s\n",a+1,fi[a].name,fi[a].sdt,fi[a].email);
     }
     else{
         fprintf(dr,"\nkhong tim thay\n");

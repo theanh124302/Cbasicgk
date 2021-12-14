@@ -28,24 +28,25 @@ void Dequeue(st s[], int *front, int rear) {
         (*front)++;
     }
 }
-int LinearSearch(st s[], int n)
+void search(st s[], int rear, int front, FILE *dr)
 {
-    int i = 0;
-    char x[30];
-    printf("nhap ten: ");
+    char x[100];
+    printf("ten muon tim kiem: ");
+    fflush(stdin);
     gets(x);
-    while ((i < n) && (strcmp(s[i].name,x)!=0))
-        i++;
-    if (i == n)
-        return -1;
-    return i;
+    for(int i=front;i<rear;i++){
+        if(strcmp(s[i].name,x)==0){
+            fprintf(dr,"\n\nket qua tim kiem : \nvi tri: %d\n",i);
+            fprintf(dr,"ten: %s\nsdt: %s\ngmail: %s\n",s[i].name,s[i].sdt,s[i].email);
+        }
+    }
 }
 char x,y[1000];
 int main(){
 
     int dem1=0,dem2=0,dem3=0;
     FILE *f=fopen("ds.txt","r+");
-    FILE *dr=fopen("daura.txt","r+");
+    FILE *dr=fopen("daura.txt","w+");
     while(fscanf(f,"%c",&x)!=EOF){
         y[dem1]=x;
         dem1++;
@@ -93,17 +94,11 @@ int main(){
     for(int i=front;i<rear;i++){
         fprintf(dr,"%d  ten: %s\nsdt: %s\ngmail: %s\n",i,s[i].name,s[i].sdt,s[i].email);
     }
+    search(s,rear,front,dr);
     int n=rear-front;
     for(int i=0;i<n;i++){
         Dequeue(s,&front,rear);
     }
-    int a=LinearSearch(fi,size);\
-    if(a!=-1){
-        fprintf(dr,"\nVi tri: %d\nten: %s\nsdt: %s\ngmail: %s\n",size-a,fi[a].name,fi[a].sdt,fi[a].email);
-    }
-    else{
-        fprintf(dr,"\nkhong tim thay\n");
-    };
     fclose(f);
     fclose(dr);
 }
